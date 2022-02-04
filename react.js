@@ -57,6 +57,22 @@ module.exports = {
       'warn',
       { children: 'ignore', props: 'never' },
     ],
+    // When able to update these rules will be handled by eslint-config-prettier
+    'react/jsx-child-element-spacing': 'off',
+    'react/jsx-closing-tag-location': 'off',
+    'react/jsx-curly-spacing': 'off',
+    'react/jsx-first-prop-new-line': 'off',
+    'react/jsx-indent-props': 'off',
+    'react/jsx-one-expression-per-line': 'off',
+    'react/jsx-tag-spacing': 'off',
+    'react/jsx-closing-bracket-location': 'off',
+    'react/jsx-curly-newline': 'off',
+    'react/jsx-equals-spacing': 'off',
+    'react/jsx-indent': 'off',
+    'react/jsx-max-props-per-line': 'off',
+    'react/jsx-props-no-multi-spaces': 'off',
+    'react/jsx-wrap-multilines': 'off',
+    // END: rules eventually handled by prettier, when we update
     'react/jsx-filename-extension': ['error', { extensions: ['.js'] }],
     'react/jsx-fragments': 'off',
     'react/jsx-handler-names': 'off', // Although I personally like this it's not common enough to enforce

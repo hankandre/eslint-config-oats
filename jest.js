@@ -27,24 +27,22 @@ try {
 }
 
 module.exports = {
-  env: {
-    'jest/globals': true,
-  },
-  plugins: [
-    'jest',
-    hasJestDom ? 'jest-dom' : null,
-    hasTestingLibrary ? 'testing-library' : null,
-  ].filter(Boolean),
-  rules: {},
   overrides: [
     {
       files: [
         '**/__tests__/**/*.+(js|ts)?(x)',
         '**/*.{spec,test}.+(js|ts)?(x)',
       ],
+      env: {
+        'jest/globals': true,
+      },
+      plugins: [
+        'jest',
+        hasJestDom ? 'jest-dom' : null,
+        hasTestingLibrary ? 'testing-library' : null,
+      ].filter(Boolean),
       rules: {
         'react/display-name': 'off', // we don't need a display name n test files
-
         'jest/consistent-test-it': 'off',
         'jest/expect-expect': 'off',
         'jest/max-nested-describe': 'error',
@@ -113,32 +111,43 @@ module.exports = {
               'testing-library/consistent-data-testid': 'off',
               'testing-library/no-await-sync-events': 'error',
               'testing-library/no-await-sync-query': 'error',
-              'testing-library/no-container': 'error',
-              'testing-library/no-debugging-utils': 'error',
               'testing-library/no-dom-import': ['error', 'react'],
               'testing-library/no-manual-cleanup': 'error',
-              'testing-library/no-node-access': 'error',
-              'testing-library/no-promise-in-fire-event': 'error',
               'testing-library/no-render-in-setup': 'error',
-              'testing-library/no-unnecessary-act': 'error',
               'testing-library/no-wait-for-empty-callback': 'error',
-              'testing-library/no-wait-for-multiple-assertions': 'error',
-              'testing-library/no-wait-for-side-effects': 'error',
               'testing-library/no-wait-for-snapshot': 'error',
               'testing-library/prefer-explicit-assert': 'warn',
               'testing-library/prefer-find-by': 'error',
               'testing-library/prefer-presence-queries': 'error',
-              'testing-library/prefer-query-by-disappearance': 'error',
               'testing-library/prefer-screen-queries': 'error',
-              'testing-library/prefer-user-event': 'error',
               'testing-library/prefer-wait-for': 'error',
-              'testing-library/render-result-naming-convention': 'error',
+              /**
+               * These require a more up-to-date ESLint version
+               */
+              //             'testing-library/no-container': 'error',
+              //             'testing-library/no-debugging-utils': 'error',
+              //             'testing-library/no-node-access': 'error',
+              //             'testing-library/no-promise-in-fire-event': 'error',
+              //             'testing-library/no-unnecessary-act': 'error',
+              //             'testing-library/no-wait-for-multiple-assertions': 'error',
+              //             'testing-library/no-wait-for-side-effects': 'error',
+              //             'testing-library/prefer-query-by-disappearance': 'error',
+              //             'testing-library/prefer-user-event': 'error',
+              //             'testing-library/render-result-naming-convention': 'error',
             }
           : null),
       },
     },
     {
       files: ['**/__tests__/**/*.ts?(x)', '**/*.{spec,test}.ts?(x)'],
+      env: {
+        'jest/globals': true,
+      },
+      plugins: [
+        'jest',
+        hasJestDom ? 'jest-dom' : null,
+        hasTestingLibrary ? 'testing-library' : null,
+      ].filter(Boolean),
       rules: {
         '@typescript-eslint/unbound-method': 'off',
         'jest/unbound-method': 'error',
