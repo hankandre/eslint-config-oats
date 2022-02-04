@@ -1,0 +1,91 @@
+{
+  "name": "eslint-config-oats",
+  "version": "0.0.0-semantically-released",
+  "description": "An eslint config that nourishes and gets you ready for the day.",
+  "main": "index.js",
+  "scripts": {
+    "find-new-rules": "npm-run-all --parallel find-new-rules:*",
+    "find-new-rules:jest": "eslint-find-rules --unused ./other/test/jest/index.js",
+    "find-new-rules:jsx-a11y": "eslint-find-rules --unused ./other/test/jsx-a11y/index.js",
+    "find-new-rules:main": "eslint-find-rules --unused ./index.js",
+    "find-new-rules:react": "eslint-find-rules --unused ./other/test/react/index.js",
+    "lint": "eslint --config index.js .",
+    "test": "npm-run-all --parallel lint find-new-rules",
+    "prepare": "husky install .config/husky",
+    "validate": "npm-run-all --parallel lint test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hankandre/eslint-config-oats.git"
+  },
+  "keywords": [
+    "eslint",
+    "eslintPlugin",
+    "eslint-plugin",
+    "oats",
+    "linter",
+    "config",
+    "styleguide"
+  ],
+  "author": "Hank Andre <hankandre@pm.me>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/hankandre/eslint-config-oats/issues"
+  },
+  "homepage": "https://github.com/hankandre/eslint-config-oats#readme",
+  "dependencies": {
+    "@typescript-eslint/eslint-plugin": "^5.10.2",
+    "@typescript-eslint/parser": "^5.10.2",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-import": "^2.25.4",
+    "eslint-plugin-jest": "^26.0.0",
+    "eslint-plugin-jest-dom": "^4.0.1",
+    "eslint-plugin-jsx-a11y": "^6.5.1",
+    "eslint-plugin-react": "^7.28.0",
+    "eslint-plugin-react-hooks": "^4.3.0",
+    "eslint-plugin-sonarjs": "^0.11.0",
+    "eslint-plugin-testing-library": "^5.0.5",
+    "eslint-plugin-unicorn": "^19.0.1",
+    "is-ci": "^3.0.1",
+    "read-pkg-up": "^7.0.1",
+    "semver": "^7.3.5"
+  },
+  "peerDependencies": {
+    "eslint": ">=6.0.0",
+    "typescript": "^4.0.0",
+    "eslint-plugin-import": ">=2.0.0",
+    "eslint-plugin-jest": ">=24.0.0",
+    "eslint-plugin-jest-dom": ">=3.0.0",
+    "eslint-plugin-jsx-a11y": ">=6.0.0",
+    "eslint-plugin-react": ">=7.0.0",
+    "eslint-plugin-react-hooks": ">=4.0.0",
+    "eslint-plugin-sonarjs": ">=0.11.0",
+    "eslint-plugin-testing-library": ">=5.0.0",
+    "eslint-plugin-unicorn": ">=19.0.0"
+  },
+  "peerDependenciesMeta": {
+    "typescript": {
+      "optional": true
+    }
+  },
+  "eslintConfig": {
+    "extends": "./index.js"
+  },
+  "engines": {
+    "node": "^12.22.0 || ^14.0.0 || >=16.0.0",
+    "npm": ">=6"
+  },
+  "devDependencies": {
+    "@testing-library/dom": "^8.11.3",
+    "@testing-library/jest-dom": "^5.16.1",
+    "eslint": "^6.8.0",
+    "eslint-find-rules": "^4.1.0",
+    "husky": "^7.0.0",
+    "jest": "^27.4.7",
+    "npm-run-all": "^4.1.5",
+    "prettier": "^2.5.1",
+    "pretty-quick": "^3.1.3",
+    "react": "^17.0.2",
+    "typescript": "^4.5.5"
+  }
+}
