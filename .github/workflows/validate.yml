@@ -42,10 +42,10 @@ jobs:
         uses: codecov/codecov-action@v2
 
   release:
-    needs main
+    needs: main
     runs-on: ubuntu-latest
     if:
-      ${{ github.repository == 'hankandre/eslint-config-oats' &&
+      ${{ github.repository == 'kentcdodds/eslint-config-kentcdodds' &&
       contains('refs/heads/main,refs/heads/beta,refs/heads/next,refs/heads/alpha',
       github.ref) && github.event_name == 'push' }}
     steps:
@@ -58,7 +58,7 @@ jobs:
       - name: ⎔ Setup node
         uses: actions/setup-node@v2
         with:
-          node-version: 14
+          node-version: 16
 
       - name: 📥 Download deps
         uses: bahmutov/npm-install@v1
