@@ -1,6 +1,6 @@
 <div align="center">
 <h1>eslint-config-oats</h1>
-<p>ESLint rules that we use heavily at Shipt when working on our internal tools. Feel free to use these conventions. This project borrows a lot from [`eslint-config-kentcdodds`](https://github.com/kentcdodds/eslint-config-kentcdodds) and extends upon it in some places</p>
+<p>ESLint rules that we use heavily at Shipt when working on our internal tools. Feel free to use these conventions. This project borrows a lot from <a href="https://github.com/kentcdodds/eslint-config-kentcdodds"><code>eslint-config-kentcdodds</code></a> and extends upon it in some places</p>
 
 </div>
 <!-- prettier-ignore-start -->
