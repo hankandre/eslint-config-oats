@@ -12,7 +12,7 @@
 
 
 ## A note before using
-Due to some existing dependencies on ESLint 6 this config doesn't get to use the shiniest new rules or plugins. There are a handful that we've needed to downgrade. Although the rules are still extensive and provide a lot of feedback there may be some that we're not able to support, yet. The following are the plugins that this config uses. Due to [this bug](https://github.com/eslint/eslint/issues/3458) they'll all need to be downloaded as `devDependencies`, too. This has led to issues with more contemporary versions of NPM, as it assumes that, if you have similar packages in your `peerDependencies` as in your `dependencies` they you'll wan their versions to match, often overwriting the `dependencies` versions with those from `peerDependencies`.
+Due to some existing dependencies on ESLint 6 this config doesn't get to use the shiniest new rules or plugins. There are a handful that we've needed to downgrade. Although the rules are still extensive and provide a lot of feedback there may be some that we're not able to support, yet. The following are the plugins that this config uses. Due to [this bug](https://github.com/eslint/eslint/issues/3458) they'll all need to be downloaded as `devDependencies`, too. This has led to issues with more contemporary versions of NPM as it assumes that, if you have similar packages in your `peerDependencies` as in your `dependencies`, they you'll want their versions to match, often overwriting the `dependencies` versions with those from `peerDependencies`.
 
 - [`eslint-plugin-import`](https://github.com/import-js/eslint-plugin-import)
 - [`eslint-plugin-jest`](https://github.com/jest-community/eslint-plugin-jest)
