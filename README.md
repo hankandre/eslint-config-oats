@@ -4,16 +4,14 @@
 
 </div>
 <!-- prettier-ignore-start -->
-[![Build Status][build-badge]][build]
-[![version][version-badge]][package]
-[![downloads][downloads-badge]][npmtrends]
-[![MIT License][license-badge]][license]
+[![GitHub license](https://img.shields.io/github/license/hankandre/eslint-config-oats)](https://github.com/hankandre/eslint-config-oats/blob/main/LICENSE)
 <!-- prettier-ignore-end -->
 
 
 ## A note before using
 Due to some existing dependencies on ESLint 6 this config doesn't get to use the shiniest new rules or plugins. There are a handful that we've needed to downgrade. Although the rules are still extensive and provide a lot of feedback there may be some that we're not able to support, yet. The following are the plugins that this config uses. Due to [this bug](https://github.com/eslint/eslint/issues/3458) they'll all need to be downloaded as `devDependencies`, too. This has led to issues with more contemporary versions of NPM as it assumes that, if you have similar packages in your `peerDependencies` as in your `dependencies`, they you'll want their versions to match, often overwriting the `dependencies` versions with those from `peerDependencies`.
 
+- [`@typescript-eslint/eslint-plugin`](https://github.com/typescript-eslint/typescript-eslint/tree/main/packages/eslint-plugin)
 - [`eslint-plugin-import`](https://github.com/import-js/eslint-plugin-import)
 - [`eslint-plugin-jest`](https://github.com/jest-community/eslint-plugin-jest)
 - [`eslint-plugin-jest-dom`](https://github.com/testing-library/eslint-plugin-jest-dom)
@@ -23,6 +21,14 @@ Due to some existing dependencies on ESLint 6 this config doesn't get to use the
 - [`eslint-plugin-sonarjs`](https://github.com/SonarSource/eslint-plugin-sonarjs)
 - [`eslint-plugin-testing-library`](https://github.com/testing-library/eslint-plugin-testing-library)
 - [`eslint-plugin-unicorn`](https://github.com/sindresorhus/eslint-plugin-unicorn)
+
+
+## Installation
+To install all this config and all its associated plugins enter the following command into your terminal:
+
+```sh
+npm i -D eslint@^6.0.0 typescript@^4.0.0 @typescript-eslint/eslint-plugin@^4.0.0 @typescript-eslint/parser@^4.0.0 eslint-plugin-unicorn@^19.0.0 eslint-plugin-testing-library@^3.0.0 eslint-plugin-sonarjs eslint-plugin-react-hooks eslint-plugin-import eslint-plugin-react eslint-plugin-jest eslint-plugin-jest-dom eslint-plugin-jsx-a11y
+```
 
 
 ### Dependency Versions
