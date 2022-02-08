@@ -36,11 +36,13 @@ npm i -D eslint-config-oats eslint@^6.0.0 typescript@^4.0.0 @typescript-eslint/e
 The base config is generic and can be used to lint either Browser or NodeJS files. When using this in a React app, ESM modules, or Cypress. The config should be extended.
 
 ```js
+//.eslintrc.cjs
 module.exports{
   extends: [
     'oats',
     'oats/import',
     'oats/react',
+    'oats/jest',
     'oats/cypress'
   ]
 }
