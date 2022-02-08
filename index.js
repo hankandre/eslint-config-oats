@@ -11,9 +11,7 @@ if (fs.existsSync('tsconfig.json')) {
 } else {
   tsConfig = undefined
 }
-/**
- * @typedef {TSESLint.Linter.Config}
- */
+
 module.exports = {
   env: {
     browser: true,
@@ -25,7 +23,7 @@ module.exports = {
     sourceType: 'module',
   },
   extends: ['prettier', './import'],
-  plugins: ['sonarjs'],
+  plugins: ['sonarjs', 'unicorn'],
   rules: {
     'accessor-pairs': 'error',
     'array-callback-return': 'error',
@@ -282,7 +280,7 @@ module.exports = {
     'sonarjs/no-identical-functions': 'error',
     'sonarjs/no-inverted-boolean-check': 'error',
     'sonarjs/no-nested-switch': 'error', // Let's think readability
-    'sonarjs/no-nested-template-literals': 'warn', // Although I agree that they're harder to read, they're pretty prevalent
+    'sonarjs/no-nested-template-literals': 'off',
     'sonarjs/no-redundant-boolean': 'error',
     'sonarjs/no-redundant-jump': 'error',
     'sonarjs/no-same-line-conditional': 'error',
@@ -294,6 +292,125 @@ module.exports = {
     'sonarjs/prefer-single-boolean-return': 'error',
     'sonarjs/prefer-while': 'error',
     'sonarjs/no-ignored-return': 'error',
+    'unicorn/better-regex': 'error',
+    'unicorn/catch-error-name': 'error',
+    'unicorn/consistent-function-scoping': 'error',
+    'unicorn/custom-error-definition': 'error',
+    'unicorn/empty-brace-spaces': 'off', // Let prettier handle this
+    'unicorn/error-message': 'error',
+    'unicorn/escape-case': 'error',
+    'unicorn/expiring-todo-comments': 'error',
+    'unicorn/explicit-length-check': 'off',
+    'unicorn/filename-case': 'off', // Maybe someday
+    'unicorn/import-index': 'error',
+    'unicorn/import-style': 'off', // Best to enable on a project-by-project basis
+    'unicorn/new-for-builtins': 'error',
+    'unicorn/no-abusive-eslint-disable': 'error',
+    'unicorn/no-array-callback-reference': 'off',
+    'unicorn/no-array-for-each': 'off', // Although it might be great it's just not common enough
+    'unicorn/no-array-reduce': 'off',
+    'unicorn/no-console-spaces': 'off',
+    'unicorn/no-for-loop': 'error',
+    'unicorn/no-hex-escape': 'error',
+    'unicorn/no-keyword-prefix': 'error',
+    'unicorn/no-nested-ternary': 'error',
+    'unicorn/no-new-buffer': 'error',
+    'unicorn/no-null': 'off',
+    'unicorn/no-process-exit': 'off',
+    'unicorn/no-unreadable-array-destructuring': 'error',
+    'unicorn/no-unsafe-regex': 'error',
+    'unicorn/no-unused-properties': 'off',
+    'unicorn/no-zero-fractions': 'error',
+    'unicorn/number-literal-case': 'error',
+    'unicorn/prefer-add-event-listener': 'error',
+    'unicorn/prefer-at': 'off',
+    'unicorn/prefer-includes': 'error',
+    'unicorn/prefer-modern-dom-apis': 'error',
+    'unicorn/prefer-module': 'off', // Some files have to be written in .js, .cjs
+    'unicorn/prefer-negative-index': 'error',
+    'unicorn/prefer-number-properties': 'error',
+    'unicorn/prefer-query-selector': 'error',
+    'unicorn/prefer-reflect-apply': 'error',
+    'unicorn/prefer-set-has': 'error',
+    'unicorn/prefer-spread': 'error',
+    'unicorn/prefer-string-slice': 'error',
+    'unicorn/prefer-top-level-await': 'off',
+    'unicorn/prefer-type-error': 'error',
+    'unicorn/prevent-abbreviations': ['error', { checkFilenames: false }],
+    'unicorn/require-post-message-target-origin': 'off',
+    'unicorn/string-content': 'off',
+    'unicorn/throw-new-error': 'error',
+
+    /**
+     * These rules require a more recent version of `eslint-plugin-unicorn` that depends on a more
+     * recent version of `eslint`. They can be enabled when that's possible.
+     */
+
+    //'unicorn/no-new-array': 'error',
+    //'unicorn/consistent-destructuring': 'error',
+    //'unicorn/no-array-method-this-argument': 'error',
+    //'unicorn/no-array-push-push': 'error',
+    //'unicorn/no-await-expression-member': 'error',
+    //'unicorn/no-document-cookie': 'error',
+    //'unicorn/no-empty-file': 'error',
+    //'unicorn/no-instanceof-array': 'error',
+    //'unicorn/no-invalid-remove-event-listener': 'error',
+    //'unicorn/no-object-as-default-parameter': 'warn',
+    //'unicorn/no-lonely-if': 'error',
+    //'unicorn/no-static-only-class': 'warn',
+    //'unicorn/no-thenable': 'error',
+    //'unicorn/no-this-assignment': 'error',
+    //'unicorn/no-useless-fallback-in-spread': 'error',
+    //'unicorn/no-useless-length-check': 'error',
+    //'unicorn/no-useless-promise-resolve-reject': 'error',
+    //'unicorn/no-useless-spread': 'error',
+    //'unicorn/no-useless-undefined': 'error',
+    //'unicorn/numeric-separators-style': 'error',
+    //'unicorn/prefer-array-find': 'error',
+    //'unicorn/prefer-array-flat': 'error',
+    //'unicorn/prefer-array-flat-map': 'error',
+    //'unicorn/prefer-array-index-of': 'error',
+    //'unicorn/prefer-array-some': 'error',
+    //'unicorn/prefer-code-point': 'error',
+    //'unicorn/prefer-date-now': 'error',
+    //'unicorn/prefer-default-parameters': 'error',
+    //'unicorn/prefer-dom-node-append': 'error',
+    //'unicorn/prefer-dom-node-dataset': 'error',
+    //'unicorn/prefer-dom-node-remove': 'error',
+    //'unicorn/prefer-dom-node-text-content': 'error',
+    //'unicorn/prefer-export-from': 'error',
+    //'unicorn/prefer-json-parse-buffer': 'error',
+    //'unicorn/prefer-keyboard-event-key': 'error',
+    //'unicorn/prefer-math-trunc': 'error',
+    //'unicorn/prefer-node-protocol': 'error', // Let's encourage this usage when possible.
+    //'unicorn/prefer-object-from-entries': 'error',
+    //'unicorn/prefer-optional-catch-binding': 'error',
+    //'unicorn/prefer-prototype-methods': 'error',
+    //'unicorn/prefer-regexp-test': 'error', // Requires more recent TS version
+    //'unicorn/prefer-string-replace-all': 'error', Requires more recent TS
+    //'unicorn/prefer-string-starts-ends-with': 'error',
+    //'unicorn/prefer-string-trim-start-end': 'error',
+    //'unicorn/prefer-switch': 'error',
+    //'unicorn/prefer-ternary': 'error',
+    //'unicorn/relative-url-style': 'error',
+    //'unicorn/require-array-join-separator': 'error',
+    //'unicorn/require-number-to-fixed-digits-argument': 'error',
+    //'unicorn/template-indent': 'error',
+
+    // These rules will be deprecated once we update to a more recent version of `eslint-plugin-unicorn`
+    'unicorn/no-array-instanceof': 'error',
+    'unicorn/prefer-dataset': 'error',
+    'unicorn/prefer-exponentiation-operator': 'error',
+    'unicorn/prefer-node-append': 'error',
+    'unicorn/prefer-replace-all': 'error',
+    'unicorn/prefer-text-content': 'error',
+    'unicorn/regex-shorthand': 'error',
+    'unicorn/no-fn-reference-in-iterator': 'off',
+    'unicorn/prefer-event-key': 'error',
+    'unicorn/prefer-flat-map': 'error',
+    'unicorn/prefer-node-remove': 'error',
+    'unicorn/prefer-starts-ends-with': 'error',
+    'unicorn/prefer-trim-start-end': 'error',
 
     // Error these in CI so that we can run them in dev but make sure
     // they don't leak into prod.

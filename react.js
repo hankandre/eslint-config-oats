@@ -3,6 +3,7 @@ const semVer = require('semver')
 
 let oldestSupportedReactVersion = '16.5.2'
 
+// eslint-disable-next-line unicorn/prevent-abbreviations
 let hasPropTypes = false
 
 try {
@@ -17,7 +18,7 @@ try {
   hasPropTypes = allDeps.hasOwnProperty('prop-types')
   oldestSupportedReactVersion = semVer
     .validRange(allDeps.react)
-    .replace(/[>=<|]/g, ' ')
+    .replaceAll(/[<=>|]/, ' ')
     .split(' ')
     .filter(Boolean)
     .sort(semVer.compare)[0]
@@ -34,7 +35,7 @@ module.exports = {
       jsx: true,
     },
   },
-  plugins: ['react', 'react-hooks'],
+  plugins: ['react', 'react-hooks', 'jsx-a11y'],
   settings: {
     react: {
       version: oldestSupportedReactVersion,
@@ -149,6 +150,42 @@ module.exports = {
     'react/void-dom-elements-no-children': 'error',
     'react-hooks/exhaustive-deps': 'warn',
     'react-hooks/rules-of-hooks': 'error',
+
+    'jsx-a11y/accessible-emoji': 'error',
+    'jsx-a11y/alt-text': 'warn',
+    'jsx-a11y/anchor-has-content': 'error',
+    'jsx-a11y/anchor-is-valid': 'error',
+    'jsx-a11y/aria-activedescendant-has-tabindex': 'error',
+    'jsx-a11y/aria-props': 'error',
+    'jsx-a11y/aria-proptypes': 'error',
+    'jsx-a11y/aria-role': 'error',
+    'jsx-a11y/aria-unsupported-elements': 'error',
+    'jsx-a11y/autocomplete-valid': 'error',
+    'jsx-a11y/click-events-have-key-events': 'error',
+    'jsx-a11y/control-has-associated-label': 'off',
+    'jsx-a11y/heading-has-content': 'error',
+    'jsx-a11y/html-has-lang': 'error',
+    'jsx-a11y/iframe-has-title': 'error',
+    'jsx-a11y/img-redundant-alt': 'error',
+    'jsx-a11y/interactive-supports-focus': 'warn',
+    'jsx-a11y/label-has-associated-control': 'error',
+    'jsx-a11y/lang': 'error',
+    'jsx-a11y/media-has-caption': 'warn',
+    'jsx-a11y/mouse-events-have-key-events': 'error',
+    'jsx-a11y/no-access-key': 'error',
+    'jsx-a11y/no-autofocus': 'error',
+    'jsx-a11y/no-distracting-elements': 'error',
+    'jsx-a11y/no-interactive-element-to-noninteractive-role': 'warn',
+    'jsx-a11y/no-noninteractive-tabindex': 'off',
+    'jsx-a11y/no-noninteractive-element-interactions': 'off',
+    'jsx-a11y/no-noninteractive-element-to-interactive-role': 'off',
+    'jsx-a11y/no-onchange': 'off',
+    'jsx-a11y/no-redundant-roles': 'error',
+    'jsx-a11y/no-static-element-interactions': 'off',
+    'jsx-a11y/role-has-required-aria-props': 'error',
+    'jsx-a11y/role-supports-aria-props': 'error',
+    'jsx-a11y/scope': 'error',
+    'jsx-a11y/tabindex-no-positive': 'warn',
   },
   overrides: [
     {

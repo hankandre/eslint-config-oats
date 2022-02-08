@@ -42,6 +42,7 @@ module.exports = {
         hasTestingLibrary ? 'testing-library' : null,
       ].filter(Boolean),
       rules: {
+        '@typescript-eslint/no-unsafe-call': 'off',
         'react/display-name': 'off', // we don't need a display name n test files
         'jest/consistent-test-it': 'off',
         'jest/expect-expect': 'off',
